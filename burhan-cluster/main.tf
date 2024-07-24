@@ -15,7 +15,7 @@ module "vnet" {
   subnet                        = var.subnet
   address_prefixes              = var.address_prefixes
 }
-# Network Security Group
+
 module "nsg" {
   source                       = "git::ssh://git@github.com/appnetwise/terraform_modules.git//modules/netowrk-securitty-group?ref=tf-skb"
   network_security_group_name = var.network_security_group_name
