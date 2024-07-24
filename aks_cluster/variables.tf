@@ -121,6 +121,19 @@ variable "os_disk_size_gb" {
   default     = 30
 }
 
+variable "os_disk_type" {
+  description = "os disk type managed"
+  type        = string
+  default     = "Managed"
+}
+
+variable "availability_zones" {
+  description = "os disk type managed"
+  type        = list(string)
+  default     = [] # Define zones like this ["1", "2", "3"] if needed
+}
+
+
 variable "enable_auto_scaling" {
   description = "Whether to enable auto-scaling for the AKS node pool"
   type        = bool
@@ -187,6 +200,12 @@ variable "tags_environment" {
   default = {
     "environment" = "dev-test-lab"
   }
+}
+
+variable "load_balancer_sku" {
+  description = "The SKU of the Load Balancer used for the AKS cluster (e.g., Standard, Basic)."
+  type        = string
+  default     = "Basic"  # You can change the default as needed
 }
 
 # Azure Container Registry
