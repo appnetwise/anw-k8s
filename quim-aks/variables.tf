@@ -37,8 +37,10 @@ variable "subnet_address_prefixes" {
 
 variable "tags" {
   description = "Tags for resources"
-  type        = string
-  default     = "testinglabs"
+  type = map(string)
+  default = {
+    "environment" = "dev-test-lab"
+  }
 }
 
 
@@ -147,8 +149,10 @@ variable "identity_type" {
 
 variable "tags_environment" {
   description = "Tags for the environment"
-  type        = string
-  default     = "testinglabs"
+  type = map(string)
+  default = {
+    "environment" = "dev-test-lab"
+  }
 }
 
 # Azure Container Registry

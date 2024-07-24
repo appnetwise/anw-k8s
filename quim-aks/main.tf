@@ -10,20 +10,20 @@ module "vnet" {
   source                        = "git::ssh://git@github.com/appnetwise/terraform_modules.git//modules/virtual_network?ref=tf-skb"
 #  source                        = "./modules/vnet"
   virtual_network_name          = var.virtual_network_name
-  resource_group_name           = module.rg.rg_name
+  resource_group_name           = var.rg_name
   location                      = var.rg_location
   address_space                 = var.virtual_network_address_space
   subnet                        = var.subnet_name
   address_prefixes              = var.subnet_address_prefixes
   tags                          = var.tags
 
-#  depends_on = [module.rg]
+  depends_on = [module.rg]
 }
 
 module "aks" {
-  source                        = "git::ssh://git@github.com/appnetwise/terraform_modules.git//modules/aks?ref=quim"
+  source                        = "git::ssh://git@github.com/appnetwise/terraform_modules.git//aks?ref=quim"
   aks_cluster_name              = var.aks_cluster_name
-  resource_group_name           = module.rg.rg_name
+  resource_group_name           = var.rg_name
   location                      = var.rg_location
   kubernetes_version            = var.kubernetes_version # Specify the desired Kubernetes version here
   node_pool_name                = var.node_pool_name
@@ -44,18 +44,18 @@ module "aks" {
   identity_type                 = var.identity_type
   tags_environment              = var.tags_environment
 
-  # depends_on = [
-  #   module.rg,
-  #   module.vnet
-  # ]
+  depends_on = [
+    module.rg,
+    module.vnet
+  ]
 }
 
 module "acr" {
-  source                        = "git::ssh://git@github.com/appnetwise/terraform_modules.git//modules/acr?ref=quim"
+  source                        = "git::ssh://git@github.com/appnetwise/terraform_modules.git//acr?ref=quim"
   acr_name                      = var.acr_name
-  resource_group_name           = module.rg.rg_name
+  resource_group_name           = var.rg_name
   location                      = var.rg_location
-  sku                           = var.sku # Price plan for acr
+  sku                           = var.sku # Price plan for acr basic
   admin_enabled                 = var.admin_enabled
   public_network_access_enabled = var.public_network_access_enabled  # only premium sku support to desable 
   anonymous_pull_enabled        = var.anonymous_pull_enabled
