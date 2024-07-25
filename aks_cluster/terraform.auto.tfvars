@@ -50,6 +50,7 @@ dns_service_ip                = "10.0.2.10"
 private_cluster_enabled       = false
 identity_type                 = "SystemAssigned"
 load_balancer_sku             = "basic"
+acr_name                      = "anw-acr"
 
 
 zone_redundancy_enabled       = false
