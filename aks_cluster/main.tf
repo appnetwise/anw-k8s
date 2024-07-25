@@ -2,15 +2,15 @@ module "rg" {
   source                        = "git::ssh://git@github.com/appnetwise/terraform_modules.git//resource-group?ref=main"
 #  source                        = "./modules/rg"
   resource_group_name           = format("%s-aks", module.names.names.azurerm_resource_group)
-  location                      = var.rg_location
+  location                      = var.location
 }
 
 module "vnet" {
   source                        = "git::ssh://git@github.com/appnetwise/terraform_modules.git//virtual_network?ref=main"
 #  source                        = "./modules/vnet"
-  virtual_network_name          = format("%s-aks", module.names.names.azurerm_subnet)   
+  virtual_network_name          = format("%s-aks", module.names.names.azurerm_virtual_network)   
   resource_group_name           = format("%s-aks", module.names.names.azurerm_resource_group)
-  location                      = var.rg_location
+  location                      = var.location
   address_space                 = var.virtual_network_address_space
   subnet                        = var.subnet_name
   address_prefixes              = var.subnet_address_prefixes
@@ -23,7 +23,7 @@ module "aks" {
   source                        = "git::ssh://git@github.com/appnetwise/terraform_modules.git//aks?ref=main"
   aks_cluster_name              = format("%s-aks", module.names.names.azurerm_kubernetes_cluster)
   resource_group_name           = format("%s-aks", module.names.names.azurerm_resource_group)
-  location                      = var.rg_location
+  location                      = var.location
   kubernetes_version            = var.kubernetes_version # Specify the desired Kubernetes version here
 
   #node_pool_profile
@@ -61,8 +61,8 @@ module "aks" {
 
 module "nsg" {
   source                       = "git::ssh://git@github.com/appnetwise/terraform_modules.git//netowrk-securitty-group?ref=main"
-  network_security_group_name = format("%s-aks", module.names.names.azurerm_virtual_network)
+  network_security_group_name = format("%s-aks", module.names.names.azurerm_network_security_group)
   resource_group_name         = module.rg.resource_group_name
-  location                    = var.rg_location
+  location                    = var.location
   tags                        = var.tags
 }
