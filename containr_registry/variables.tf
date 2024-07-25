@@ -1,37 +1,37 @@
 variable "sku" {
   description = "The SKU for the Azure Container Registry"
   type        = string
-  default     = "Basic"
+#  default     = "Basic"
 }
 
 variable "admin_enabled" {
   description = "Whether the admin user is enabled for ACR"
   type        = bool
-  default     = false
+#  default     = false
 }
 
 variable "public_network_access_enabled" {
   description = "Whether public network access is enabled for ACR"
   type        = bool
-  default     = true
+#  default     = true
 }
 
 variable "anonymous_pull_enabled" {
   description = "Whether anonymous pull access is enabled for ACR"
   type        = bool
-  default     = false
+#  default     = false
 }
 
 variable "export_policy_enabled" {
   description = "Whether the export policy is enabled for ACR"
   type        = bool
-  default     = true
+#  default     = true
 }
 
 variable "zone_redundancy_enabled" {
   description = "Whether zone redundancy is enabled for ACR"
   type        = bool
-  default     = false
+#  default     = false
 }
 variable "environment" {
   description = "Environment the resources are to be deployed to"

@@ -35,38 +35,38 @@ variable "sku_name" {
 variable "rg_name" {
   description = "The name of the resource group"
   type        = string
-  default     = "anw-rg"
+#  default     = "anw-rg"
 }
 
 variable "rg_location" {
   description = "The location of the resource group"
   type        = string
-  default     = "Central India"
+#  default     = "Central India"
 }
 
 # Virtual network
 variable "virtual_network_name" {
   description = "The name of the virtual network"
   type        = string
-  default     = "anw-vnet"
+#  default     = "anw-vnet"
 }
 
 variable "virtual_network_address_space" {
   description = "The address space for the virtual network"
   type        = list(string)
-  default     = ["10.0.0.0/16"]
+#  default     = ["10.0.0.0/16"]
 }
 
 variable "subnet_name" {
   description = "The name of the subnet"
   type        = string
-  default     = "anw-aks-subnet"
+#  default     = "anw-aks-subnet"
 }
 
 variable "subnet_address_prefixes" {
   description = "The address prefixes for the subnet"
   type        = list(string)
-  default     = ["10.0.1.0/24"]
+#  default     = ["10.0.1.0/24"]
 }
 
 variable "tags" {
@@ -82,98 +82,98 @@ variable "tags" {
 variable "aks_cluster_name" {
   description = "The name of the AKS cluster"
   type        = string
-  default     = "anwaks"
+#  default     = "anwaks"
 }
 
 variable "kubernetes_version" {
   description = "The Kubernetes version to use for the AKS cluster"
   type        = string
-  default     = "1.28.10"
+#  default     = "1.28.10"
 }
 
 variable "node_pool_name" {
   description = "The name of the AKS node pool"
   type        = string
-  default     = "nodepool"
+#  default     = "nodepool"
 }
 
 variable "node_count" {
   description = "The initial number of nodes in the node pool"
   type        = number
-  default     = 1
+#  default     = 1
 }
 
 variable "vm_size" {
   description = "The size of the virtual machines in the node pool"
   type        = string
-  default     = "Standard_D2s_v3"
+#  default     = "Standard_D2s_v3"
 }
 
 variable "os_sku" {
   description = "The OS SKU for the AKS nodes"
   type        = string
-  default     = "Ubuntu"
+#  default     = "Ubuntu"
 }
 
 variable "os_disk_size_gb" {
   description = "The OS disk size in GB for the AKS nodes"
   type        = number
-  default     = 30
+#  default     = 30
 }
 
 
 variable "enable_auto_scaling" {
   description = "Whether to enable auto-scaling for the AKS node pool"
   type        = bool
-  default     = true
+#  default     = true
 }
 
 variable "min_count" {
   description = "The minimum number of nodes in the node pool"
   type        = number
-  default     = 1
+#  default     = 1
 }
 
 variable "max_count" {
   description = "The maximum number of nodes in the node pool"
   type        = number
-  default     = 2
+#  default     = 2
 }
 
 variable "max_pods" {
   description = "The maximum number of pods per node"
   type        = number
-  default     = 31
+#  default     = 31
 }
 
 variable "network_plugin" {
   description = "The network plugin to use for the AKS cluster"
   type        = string
-  default     = "azure"
+#  default     = "azure"
 }
 
 variable "network_policy" {
   description = "The network policy to use for the AKS cluster"
   type        = string
-  default     = "calico"
+#  default     = "calico"
 }
 
 variable "service_cidr" {
   description = "The CIDR range for the Kubernetes services"
   type        = string
-  default     = "10.0.2.0/24"
+#  default     = "10.0.2.0/24"
 }
 
 variable "dns_service_ip" {
   description = "The IP address for the DNS service in the AKS cluster"
   type        = string
-  default     = "10.0.2.10"
+#  default     = "10.0.2.10"
 }
 
 variable "private_cluster_enabled" {
   description = "Whether to enable private cluster for AKS"
   type        = bool
-  default     = false
+#  default     = false
 }
 
 variable "identity_type" {
@@ -193,14 +193,14 @@ variable "tags_environment" {
 variable "load_balancer_sku" {
   description = "The SKU of the Load Balancer used for the AKS cluster (e.g., Standard, Basic)."
   type        = string
-  default     = "basic"  # You can change the default as needed
+#  default     = "basic"  # You can change the default as needed
 }
 
 # Azure Container Registry
 variable "acr_name" {
   description = "The name of the Azure Container Registry"
   type        = string
-  default     = "anwacr"
+#  default     = "anwacr"
 }
 
 variable "sku" {
@@ -236,13 +236,13 @@ variable "export_policy_enabled" {
 variable "zone_redundancy_enabled" {
   description = "Whether zone redundancy is enabled for ACR"
   type        = bool
-  default     = false
+#  default     = false
 }
 
 variable "network_security_group_name" {
     description = "The name of the Network Security Group."
     type        = string
-    default     = "tf-anw-nsg" 
+#    default     = "tf-anw-nsg" 
 }
 variable "resource_types" {
   description = "A list of Azure resource types to create names for"
@@ -267,10 +267,10 @@ variable "location" {
 variable "os_disk_type" {
   description = "os disk type managed"
   type        = string
-  default     = "Managed"
+#  default     = "Managed"
 }
 variable "availability_zones" {
   description = "os disk type managed"
   type        = list(string)
-  default     = [] # Define zones like this ["1", "2", "3"] if needed
+#  default     = [] # Define zones like this ["1", "2", "3"] if needed
 }
