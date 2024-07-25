@@ -205,7 +205,7 @@ variable "tags_environment" {
 variable "load_balancer_sku" {
   description = "The SKU of the Load Balancer used for the AKS cluster (e.g., Standard, Basic)."
   type        = string
-  default     = "Basic"  # You can change the default as needed
+  default     = "basic"  # You can change the default as needed
 }
 
 # Azure Container Registry
