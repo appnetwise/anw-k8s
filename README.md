@@ -17,7 +17,7 @@ This repository contains a set of Terraform modules organized into a root module
 
 The root module provides common infrastructure components and configurations. 
 
-which are utilized by the child modules to create specific resourcesgit 
+which are utilized by the child modules to create specific resourcesgit. 
  
  
 - **rootmodule**: This directory contains the root module which defines the common infrastructure components and configurations.
