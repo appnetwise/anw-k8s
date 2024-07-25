@@ -15,7 +15,7 @@
  
 This repository contains a set of Terraform modules organized into a root module and several child modules. 
 
-The root module provides common infrastructure components and configurations, 
+The root module provides common infrastructure components and configurations. 
 
 which are utilized by the child modules to create specific resources.
  
