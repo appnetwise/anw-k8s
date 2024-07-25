@@ -1,1 +1,3 @@
 quim-aks-tf/
+aks_cluster/.terraform/
+aks_cluster/.terraform.lock.hcl
