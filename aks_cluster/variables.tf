@@ -237,3 +237,38 @@ variable "network_security_group_name" {
     type        = string
     default     = "tf-anw-nsg" 
 }
+variable "resource_types" {
+  description = "A list of Azure resource types to create names for"
+  type        = list(string)
+}
+variable "environment" {
+  description = "Environment the resources are to be deployed to"
+  type        = string
+}
+variable "address_prefixes" {
+  description = "A list of one or more CIDR blocks for the Packer subnet"
+  type        = list(string)
+}
+variable "id" {
+  description = "Environment Id the resources are to be deployed to.  Used by the names module."
+  type        = string
+}
+variable "location" {
+  description = "The location the resources are to be deployed"
+  type        = string
+}
+variable "load_balancer_sku" {
+  description = "The SKU of the Load Balancer used for the AKS cluster (e.g., Standard, Basic)."
+  type        = string
+  default     = "basic"  # You can change the default as needed
+}
+variable "os_disk_type" {
+  description = "os disk type managed"
+  type        = string
+  default     = "Managed"
+}
+variable "availability_zones" {
+  description = "os disk type managed"
+  type        = list(string)
+  default     = [] # Define zones like this ["1", "2", "3"] if needed
+}

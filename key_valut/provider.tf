@@ -8,7 +8,6 @@ terraform {
 }
 
 provider "azuread" {}
-
 provider "azurerm" {
   features {}
 }
