@@ -1,5 +1,6 @@
 name: Add Issues to ANW Board
 on:
+  workflow_call:
   issues:
     types:
       - opened
