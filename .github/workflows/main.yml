@@ -1,4 +1,4 @@
-name: Add Issues to ANW_BOARD
+name: Call Add Issues Workflow
 
 on:
   issues:
@@ -8,3 +8,4 @@ on:
 jobs:
   call-workflow:
     uses: appnetwise/anw-k8s/.github/workflows/Add_Issues.yml@main
+    secrets: inherit
